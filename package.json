@@ -1,5 +1,4 @@
 {
-  "private": true,
   "name": "nodeon-helpers",
   "version": "0.0.1",
   "main": "./lib/helpers",
