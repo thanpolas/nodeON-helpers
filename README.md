@@ -175,7 +175,7 @@ Get the user's HOME directory.
 
 ## Release History
 
-- **v0.0.1**, *TBD*
+- **v0.0.1**, *14 Aug 2014*
     - Big Bang
 
 ## License
