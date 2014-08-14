@@ -1,61 +1,177 @@
-# __proto__
+# nodeON-helpers
 
-> Clone, edit, hack. An opinionated boilerplate for Node Libraries.
+> A Collection of helper methods.
 
-[![Build Status](https://secure.travis-ci.org/thanpolas/__proto__.png?branch=master)](http://travis-ci.org/thanpolas/__proto__)
-
-To use, simply Clone, Enter directory, delete `.git` folder and start over:
-
-```shell
-git clone git@github.com:thanpolas/__proto__.git
-cd __proto__
-rm -rf .git
-git init
-git add .
-git commit "Boot!"
-```
-
-Boilerplate OSS follows...
+[![Build Status](https://secure.travis-ci.org/thanpolas/nodeOn-helpers.png?branch=master)](http://travis-ci.org/thanpolas/nodeOn-helpers)
 
 ## Install
 
 Install the module using NPM:
 
 ```
-npm install YADDAYADDA --save
+npm install nodeon-helpers --save
 ```
+
 ## <a name='TOC'>Table of Contents</a>
 
-1. [Overview](#overview)
 1. [API](#api)
-
-## Overview
-
-Lorem ipsum trololol.
+    1. [Set a salt string](#setSalt)
+    1. [Generate a random string](#generateRandomString)
+    1. [Generate a random number](#generateRandomNumber)
+    1. [Hash a string using bcrypt](#hash)
+    1. [Verify a hashed string match](#hashVerify)
+    1. [Get a url safe string](#urlify)
+    1. [Truncate arguments from a function](#truncateArgs)
+    1. [Will copy an array over an existing one](#pushCopy)
+    1. [Get the current user HOME dir](#getUserHome)
 
 ## API
 
-One more to go back without onez has together we know!
+### <a name='setSalt'>Set a salt string</a>
+
+> ### helpers.setSalt(salt)
+>
+>    * **salt** `string` Any string.
+
+Use it once to set a salt for the crypto functions.
 
 **[[⬆]](#TOC)**
 
-### <a name='toApi'>Getting an API Safe verison</a>
+### <a name='generateRandomString'>Generate a random string</a>
 
-> ### errInstance.toApi()
+> ### helpers.generateRandomString(optLength)
 >
-> *Returns* `Object` A sanitized object.
+>    * **optLength** `number=` Define length, default 32.
+>
+> *Returns* `string` The random string.
 
-Clones the error object and strips it of all the `Error` getters (like `stack`) and the following attributes:
-    
-    * `srcError`
+Returns a randomized string.
+
+**[[⬆]](#TOC)**
+
+
+### <a name='generateRandomNumber'>Generate a random number</a>
+
+> ### helpers.generateRandomNumber(optLength)
+>
+>    * **optLength** `number=` Define length, default 20.
+>
+> *Returns* `string` The random string of numbers.
+
+Returns a randomized string only with numbers.
+
+**[[⬆]](#TOC)**
+
+
+### <a name='hash'>Hash a string using bcrypt</a>
+
+> ### helpers.hash(text, done)
+>
+>    * **text** `string` The string to hash.
+>    * **done** `Function()` Node.js style callback.
+>
+
+Hashes a string using the [bcrypt library](https://github.com/ncb000gt/node.bcrypt.js/).
+
+**[[⬆]](#TOC)**
+
+
+### <a name='hashVerify'>Verify a hashed string match</a>
+
+> ### helpers.hashVerify(hash, text, done)
+>
+>    * **hash** `string` The hashed string.
+>    * **text** `string` The string to test.
+>    * **done** `Function(boolean)` Callback with a single argument, boolean.
+>
+
+Tests if the given string matches the provided hash.
+
+**[[⬆]](#TOC)**
+
+
+### <a name='urlify'>Get a url safe string</a>
+
+> ### helpers.urlify(text, optRandLen)
+>
+>    * **text** `string` The string to urlify.
+>    * **optRandLen** `number` How many numbers to use for randomizing the url, default 6.
+
+Get a url safe string.
 
 ```js
-var appErr = require('nodeon-error');
+var helpers = require('nodeon-helpers');
 
-var error = new appErr.Error();
+var urlString = helpers.urlify('a name with spaces');
 
-console.log(error.toApi());
+console.log(urlString);
+// prints: "458202-a-name-with-spaces"
 ```
+
+**[[⬆]](#TOC)**
+
+### <a name='truncateArgs'>Truncate arguments from a function</a>
+
+> ### helpers.truncateArgs(fn, count, optSelf)
+>
+>    * **fn** `Function` The function to truncate arguments.
+>    * **count** `number` How many arguments to allow before truncating.
+>    * **optSelf** `Object=` Optionally apply context.
+>
+> *Return* `Function` The function to invoke.
+
+Will truncate arguments from a function.
+
+```js
+var helpers = require('nodeon-helpers');
+
+function run(one, two, three) {
+    console.log(one); // prints 1
+    console.log(two); // prints "undefined"
+    console.log(three); // prints "undefined"
+}
+
+var fn = helpers.truncateArgs(run, 1);
+
+fn(1, 2, 3);
+```
+
+**[[⬆]](#TOC)**
+
+### <a name='pushCopy'>Will copy an array over an existing one</a>
+
+> ### helpers.pushCopy(src, dst)
+>
+>    * **src** `Array` The source array.
+>    * **dst** `Array` The destination array.
+>
+
+Will copy an array over an existing one.
+
+```js
+var helpers = require('nodeon-helpers');
+
+var src = [4,5,6];
+var dst = [1,2,3];
+
+helpers.pushCopy(src, dst);
+
+console.log(dst);
+// prints: [1, 2, 3, 4, 5, 6]
+```
+
+**[[⬆]](#TOC)**
+
+### <a name='getUserHome'>Get the current user HOME dir.</a>
+
+> ### helpers.getUserHome()
+>
+> *Return* `string` The full path to the user's HOME.
+
+Get the user's HOME directory.
+
+**[[⬆]](#TOC)**
+
 
 ## Release History
 
