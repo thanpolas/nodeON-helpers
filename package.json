@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "nodeon-helpers",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "./lib/helpers",
   "description": "A collection of helper funcs",
   "homepage": "https://github.com/thanpolas/nodeON-helpers",
