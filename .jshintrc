@@ -4,7 +4,7 @@
  * Forked from Airbnb JSHint settings.
  *
  * @version 0.4.3
- * @source 
+ * @source
  * @see http://www.jshint.com/docs/
  * @see https://github.com/airbnb/javascript * Forked of Airbnb JSHint settings.
  */
@@ -101,6 +101,8 @@
    * These are provisional options for legacy code.
    *
    */
+  /** Fucking disco https://github.com/petkaantonov/bluebird/issues/301 */
+  "predef": [ "-Promise" ],
 
   /**
    * PROJECT GLOBALS
