@@ -185,7 +185,7 @@ Get the user's HOME directory.
 
 ## Release History
 
-- **v0.1.1**, *19 Sep 2014*
+- **v0.1.2**, *19 Sep 2014*
     - Added `isNumeric()` method.
 - **v0.1.0**, *14 Aug 2014*
     - Big Bang
