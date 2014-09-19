@@ -167,3 +167,59 @@ describe('Test "getUserHome" method', function () {
   });
 });
 
+describe('Test "isNumber" method', function () {
+  it('should pass the value: "-1"', function() {
+    expect(helpers.isNumeric('-1')).to.be.true;
+  });
+  it('should pass the value: "-1.5"', function() {
+    expect(helpers.isNumeric('-1.5')).to.be.true;
+  });
+  it('should pass the value: "0"', function() {
+    expect(helpers.isNumeric('0')).to.be.true;
+  });
+  it('should pass the value: "0.42"', function() {
+    expect(helpers.isNumeric('0.42')).to.be.true;
+  });
+  it('should pass the value: ".42"', function() {
+    expect(helpers.isNumeric('.42')).to.be.true;
+  });
+  it('should pass the value: "99,999"', function() {
+    expect(helpers.isNumeric('99,999')).to.be.false;
+  });
+  it('should pass the value: "0x89f"', function() {
+    expect(helpers.isNumeric('0x89f')).to.be.true;
+  });
+  it('should pass the value: "#abc"', function() {
+    expect(helpers.isNumeric('#abcde')).to.be.false;
+  });
+  it('should pass the value: "1.2.3"', function() {
+    expect(helpers.isNumeric('1.2.3')).to.be.false;
+  });
+  it('should pass the value: ""', function() {
+    expect(helpers.isNumeric('')).to.be.false;
+  });
+  it('should pass the value: "blah"', function() {
+    expect(helpers.isNumeric('blah')).to.be.false;
+  });
+  it('should pass the value: " "', function() {
+    expect(helpers.isNumeric(' ')).to.be.false;
+  });
+  it('should pass the value: "\t\t"', function() {
+    expect(helpers.isNumeric('\t\t')).to.be.false;
+  });
+  it('should pass the value: "\n\r"', function() {
+    expect(helpers.isNumeric('\n\r')).to.be.false;
+  });
+  it('should pass the value: -1', function() {
+    expect(helpers.isNumeric(-1)).to.be.true;
+  });
+  it('should pass the value: 0', function() {
+    expect(helpers.isNumeric(0)).to.be.true;
+  });
+  it('should pass the value: 1.1', function() {
+    expect(helpers.isNumeric(1.1)).to.be.true;
+  });
+  it('should pass the value: 8e5', function() {
+    expect(helpers.isNumeric(8e5)).to.be.true;
+  });
+});
