@@ -24,6 +24,7 @@ npm install nodeon-helpers --save
     1. [Truncate arguments from a function](#truncateArgs)
     1. [Will copy an array over an existing one](#pushCopy)
     1. [Get the current user HOME dir](#getUserHome)
+    1. [Determine if a value is numeric](#isNumeric)
 
 ## API
 
@@ -172,9 +173,20 @@ Get the user's HOME directory.
 
 **[[⬆]](#TOC)**
 
+### <a name='isNumeric'>Determine if a value is numeric.</a>
+
+> ### helpers.isNumeric(value)
+>
+>    * **value** `string|number` The value to check.
+>
+> *Return* `boolean` If the value is numeric.
+
+**[[⬆]](#TOC)**
 
 ## Release History
 
+- **v0.1.1**, *19 Sep 2014*
+    - Added `isNumeric()` method.
 - **v0.1.0**, *14 Aug 2014*
     - Big Bang
 
