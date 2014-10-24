@@ -215,6 +215,8 @@ Get the user's HOME directory.
 
 ## Release History
 
+- **v0.1.4**, *24 Oct 2014*
+    - Added `skipArgs()` method.
 - **v0.1.3**, *19 Sep 2014*
     - Added `isNumeric()` method.
 - **v0.1.0**, *14 Aug 2014*
