@@ -22,6 +22,7 @@ npm install nodeon-helpers --save
     1. [Verify a hashed string match](#hashVerify)
     1. [Get a url safe string](#urlify)
     1. [Truncate arguments from a function](#truncateArgs)
+    1. [Skip arguments from a function](#skipArgs)
     1. [Will copy an array over an existing one](#pushCopy)
     1. [Get the current user HOME dir](#getUserHome)
     1. [Determine if a value is numeric](#isNumeric)
@@ -138,6 +139,35 @@ fn(1, 2, 3);
 ```
 
 **[[⬆]](#TOC)**
+
+### <a name='skipArgs'>Skip arguments from a function</a>
+
+> ### helpers.skipArgs(fn, count, optSelf)
+>
+>    * **fn** `Function` The function to skip arguments for.
+>    * **count** `number` How many arguments to skip.
+>    * **optSelf** `Object=` Optionally apply context.
+>
+> *Return* `Function` The function to invoke.
+
+Will skip the first n arguments from a function.
+
+```js
+var helpers = require('nodeon-helpers');
+
+function run(one) {
+    console.log(one); // prints 3
+}
+
+var fn = helpers.skipArgs(run, 2);
+
+fn(1, 2, 3);
+```
+
+**[[⬆]](#TOC)**
+
+
+
 
 ### <a name='pushCopy'>Will copy an array over an existing one</a>
 
