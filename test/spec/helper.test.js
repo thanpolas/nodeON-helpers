@@ -18,6 +18,7 @@ describe('Base API Surface', function() {
     expect(helpers.salt).to.be.a('function');
     expect(helpers.urlify).to.be.a('function');
     expect(helpers.truncateArgs).to.be.a('function');
+    expect(helpers.skipArgs).to.be.a('function');
     expect(helpers.pushCopy).to.be.a('function');
     expect(helpers.getUserHome).to.be.a('function');
   });
@@ -138,14 +139,35 @@ describe('Test "truncateArgs" method', function () {
       expect(three).to.be.an('undefined');
       expect(this.a).to.equal(1);
     }
-
     var obj = {
       a: 1,
     };
     var cb = helpers.truncateArgs(run, 1, obj);
     cb(1, 2, 3);
   });
+});
 
+describe('Test "skipArgs" method', function () {
+  it('should skip arguments', function () {
+    function run(one) {
+      expect(arguments).to.have.length(1);
+      expect(one).to.equal(3);
+    }
+    var cb = helpers.skipArgs(run, 2);
+    cb(1, 2, 3);
+  });
+  it('should apply context arguments', function () {
+    function run(one) {
+      expect(one).to.equal(3);
+      expect(arguments).to.have.length(1);
+      expect(this.a).to.equal(1);
+    }
+    var obj = {
+      a: 1,
+    };
+    var cb = helpers.skipArgs(run, 2, obj);
+    cb(1, 2, 3);
+  });
 });
 
 describe('Test "pushCopy" method', function () {
