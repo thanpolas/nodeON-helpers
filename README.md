@@ -227,6 +227,8 @@ Get the user's HOME directory.
 
 ## Release History
 
+- **v0.1.5**, *11 Dec 2014*
+    - Added the `isRequestJson` method.
 - **v0.1.4**, *24 Oct 2014*
     - Added `skipArgs()` method.
 - **v0.1.3**, *19 Sep 2014*
