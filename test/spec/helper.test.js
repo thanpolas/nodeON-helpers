@@ -21,6 +21,7 @@ describe('Base API Surface', function() {
     expect(helpers.skipArgs).to.be.a('function');
     expect(helpers.pushCopy).to.be.a('function');
     expect(helpers.getUserHome).to.be.a('function');
+    expect(helpers.isRequestJson).to.be.a('function');
   });
 });
 
@@ -243,5 +244,17 @@ describe('Test "isNumber" method', function () {
   });
   it('should pass the value: 8e5', function() {
     expect(helpers.isNumeric(8e5)).to.be.true;
+  });
+});
+
+describe('Test the isRequestJson method', function () {
+  it('should return true', function () {
+    var isJson = helpers.isRequestJson({
+      headers: {
+        accept: 'application/json;',
+      }
+    });
+
+    expect(isJson).to.be.true;
   });
 });
