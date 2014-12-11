@@ -26,6 +26,7 @@ npm install nodeon-helpers --save
     1. [Will copy an array over an existing one](#pushCopy)
     1. [Get the current user HOME dir](#getUserHome)
     1. [Determine if a value is numeric](#isNumeric)
+    1. [Determine if Express Request Accepts JSON](#isRequestJson)
 
 ## API
 
@@ -212,6 +213,17 @@ Get the user's HOME directory.
 > *Return* `boolean` If the value is numeric.
 
 **[[⬆]](#TOC)**
+
+### <a name='isRequestJson'>Determine if Express Request Accepts JSON</a>
+
+> ### helpers.isRequestJson(req)
+>
+>    * **req** `Object` The Express request object.
+>
+> *Return* `boolean` If client accepts JSON.
+
+**[[⬆]](#TOC)**
+
 
 ## Release History
 
