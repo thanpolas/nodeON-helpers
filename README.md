@@ -257,4 +257,4 @@ var padded = helpers.zeroPadding(2, 3);
 
 ## License
 
-Copyright (c) 2014 Thanasis Polychronakis. Licensed under the MIT license.
+Copyright ©2015 Thanasis Polychronakis. Licensed under the MIT license.
