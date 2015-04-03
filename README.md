@@ -27,6 +27,7 @@ npm install nodeon-helpers --save
     1. [Get the current user HOME dir](#getUserHome)
     1. [Determine if a value is numeric](#isNumeric)
     1. [Determine if Express Request Accepts JSON](#isRequestJson)
+    1. [Zero Padding on a number 2 --> '002'](#zeroPadding)
 
 ## API
 
@@ -223,6 +224,24 @@ Get the user's HOME directory.
 > *Return* `boolean` If client accepts JSON.
 
 **[[⬆]](#TOC)**
+
+
+### <a name='zeroPadding'>Zero Padding on a number</a>
+
+> ### helpers.zeroPadding(number, width)
+>
+>    * **number** `number` The number to apply zeropadding on.
+>    * **number** `width` The padding.
+>
+> *Return* `string` The zero padded number.
+
+```js
+var padded = helpers.zeroPadding(2, 3);
+// '002'
+```
+
+**[[⬆]](#TOC)**
+
 
 
 ## Release History
