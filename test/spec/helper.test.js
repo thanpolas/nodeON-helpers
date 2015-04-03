@@ -22,6 +22,7 @@ describe('Base API Surface', function() {
     expect(helpers.pushCopy).to.be.a('function');
     expect(helpers.getUserHome).to.be.a('function');
     expect(helpers.isRequestJson).to.be.a('function');
+    expect(helpers.zeroPadding).to.be.a('function');
   });
 });
 
@@ -256,5 +257,11 @@ describe('Test the isRequestJson method', function () {
     });
 
     expect(isJson).to.be.true;
+  });
+});
+
+describe('Zeropadding', function () {
+  it('should return expected string', function () {
+    expect(helpers.zeroPadding(2, 3)).to.equal('002');
   });
 });
