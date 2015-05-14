@@ -246,6 +246,8 @@ var padded = helpers.zeroPadding(2, 3);
 
 ## Release History
 
+- **v0.1.7**, *14 May 2015*
+    - Made all npm dependencies specific, thank you [@kbariotis](https://github.com/kbariotis).
 - **v0.1.6**, *03 Apr 2015*
     - Added the `zeroPadding` method.
 - **v0.1.5**, *11 Dec 2014*
