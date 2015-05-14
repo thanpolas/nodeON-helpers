@@ -23,20 +23,20 @@
     "test": "./node_modules/.bin/grunt jshint:lib && ./node_modules/.bin/mocha -b test/spec -u bdd  -R spec"
   },
   "dependencies": {
-    "lodash": "~2.4.1",
-    "slug": "^0.6.0",
-    "bcrypt": "^0.8.0",
-    "bluebird": "^2.3.2"
+    "lodash": "2.4.1",
+    "slug": "0.6.0",
+    "bcrypt": "0.8.0",
+    "bluebird": "2.3.2"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-release": "~0.7.0",
-    "load-grunt-tasks": "~0.6.0",
-    "mocha": "~1.21.4",
-    "grunt-mocha-test": "~0.12.0",
-    "grunt": "~0.4.5",
-    "chai": "~1.9.1",
-    "sinon": "~1.10.3",
-    "grunt-cli": "^0.1.13"
+    "grunt-contrib-jshint": "0.10.0",
+    "grunt-release": "0.7.0",
+    "load-grunt-tasks": "0.6.0",
+    "mocha": "1.21.4",
+    "grunt-mocha-test": "0.12.0",
+    "grunt": "0.4.5",
+    "chai": "1.9.1",
+    "sinon": "1.10.3",
+    "grunt-cli": "0.1.13"
   }
 }
