@@ -1,6 +1,6 @@
 {
   "name": "nodeon-helpers",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "main": "./lib/helpers",
   "description": "A collection of helper funcs",
   "homepage": "https://github.com/thanpolas/nodeON-helpers",
