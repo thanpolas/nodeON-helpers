@@ -69,13 +69,26 @@ Returns a randomized string only with numbers.
 
 ### <a name='hash'>Hash a string using bcrypt</a>
 
-> ### helpers.hash(text, done)
+> ### helpers.hash(text, optOpts, done)
 >
 >    * **text** `string` The string to hash.
+>    * **optOpts** `Object=` Optionally define options.
 >    * **done** `Function()` Node.js style callback.
 >
 
 Hashes a string using the [bcrypt library](https://github.com/ncb000gt/node.bcrypt.js/).
+
+Bcrypt will only hash strings up to 72 chars long. If the passed string is longer than that the `helpers.hash` method will fail with a warning. To ignore that behavior set the `ignoreLimit` option to true:
+
+```js
+
+helpers.hash(longString, {ignoreLimit: true}, function(err, res) {
+    // Ignoring limit will not create an error
+    expect(err).to.be.null;
+    expect(res).to.be.a('string');
+});
+
+```
 
 **[[⬆]](#TOC)**
 
