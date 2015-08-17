@@ -259,6 +259,8 @@ var padded = helpers.zeroPadding(2, 3);
 
 ## Release History
 
+- **v0.1.9**, *17 Aug 2015*
+    - Added option to ignore char limit for hash.
 - **v0.1.8**, *14 Aug 2015*
     - Will now return error if string for hash is 72chars or longer, [bcrypt will not handle it](https://github.com/ncb000gt/node.bcrypt.js/issues/325).
     - Upgraded all dependencies to latest.
