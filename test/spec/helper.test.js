@@ -8,11 +8,9 @@ var helpers = require('../..');
 
 describe('Base API Surface', function() {
   it('should export methods', function(){
-    expect(helpers.setSalt).to.be.a('function');
     expect(helpers.addSingletonGetter).to.be.a('function');
     expect(helpers.generateRandomString).to.be.a('function');
     expect(helpers.generateRandomNumber).to.be.a('function');
-    expect(helpers.salt).to.be.a('function');
     expect(helpers.urlify).to.be.a('function');
     expect(helpers.truncateArgs).to.be.a('function');
     expect(helpers.skipArgs).to.be.a('function');
