@@ -1,7 +1,6 @@
 /**
  * @fileOverview Base API Surface tests.
  */
-var Promise = require('bluebird');
 var chai = require('chai');
 var expect = chai.expect;
 
@@ -9,13 +8,9 @@ var helpers = require('../..');
 
 describe('Base API Surface', function() {
   it('should export methods', function(){
-    expect(helpers.setSalt).to.be.a('function');
     expect(helpers.addSingletonGetter).to.be.a('function');
     expect(helpers.generateRandomString).to.be.a('function');
     expect(helpers.generateRandomNumber).to.be.a('function');
-    expect(helpers.hash).to.be.a('function');
-    expect(helpers.hashVerify).to.be.a('function');
-    expect(helpers.salt).to.be.a('function');
     expect(helpers.urlify).to.be.a('function');
     expect(helpers.truncateArgs).to.be.a('function');
     expect(helpers.skipArgs).to.be.a('function');
@@ -23,13 +18,6 @@ describe('Base API Surface', function() {
     expect(helpers.getUserHome).to.be.a('function');
     expect(helpers.isRequestJson).to.be.a('function');
     expect(helpers.zeroPadding).to.be.a('function');
-  });
-});
-
-describe('Test "setSalt" method', function () {
-  it('should set the internal salt var', function () {
-    helpers.setSalt('custom salt');
-    expect(helpers.__salt).to.equal('custom salt');
   });
 });
 
@@ -74,46 +62,6 @@ describe('Test "generateRandomNumber" method', function () {
     expect(res).to.not.equal(res2);
     expect(res3).to.have.length(10);
     expect(res).to.match(/[\d]{20,20}/);
-  });
-});
-
-describe('Test "hash" method', function () {
-  it('should hash a string', function (done) {
-    helpers.hash('string', function (err, hashed) {
-      if (err) {
-        done(err);
-        return;
-      }
-      expect(hashed).to.not.equal('string');
-      done();
-    });
-  });
-});
-
-describe('Test "hashVerify" method', function () {
-  beforeEach(function (done) {
-    var self = this;
-    helpers.hash('string', function (err, hashed) {
-      if (err) {
-        done(err);
-        return;
-      }
-      self.hashed = hashed;
-      done();
-    });
-  });
-
-  it('should properly verify an identical string', function (done) {
-    helpers.hashVerify(this.hashed, 'string', function (match) {
-      expect(match).to.be.true;
-      done();
-    });
-  });
-  it('should not verify a different string', function (done) {
-    helpers.hashVerify(this.hashed, 'string2', function (match) {
-      expect(match).to.be.false;
-      done();
-    });
   });
 });
 
